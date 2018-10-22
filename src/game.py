@@ -7,7 +7,7 @@ class Game:
     def __init__(self):
         self.is_running = True
         self.GameState = GameState()
-        self.Player=Player(input, )
+        self.Player = Player()
 
     def run(self):
         while(self.GameState.state != GameState.State.EXIT):
