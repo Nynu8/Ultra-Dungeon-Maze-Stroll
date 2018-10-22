@@ -8,10 +8,16 @@ class GameState:
         ENTER_RANDOM_ROOM = 4
         EXIT = 5
 
-    def __init__(self):
-        self.state = GameState.State.NEW_GAME
+    class Player:
+        def __init__(self, name):
+            self.name=name
 
-    def Update(self):
+    def __init__(self, Player):
+        self.state = GameState.State.NEW_GAME
+        self.Player = Player()
+
+    def Update(self, Player):
         if(self.state == GameState.State.NEW_GAME):
             print("New game")
+            Player.name=input("Prosze podac imie gracza: ")
             self.state = GameState.State.EXIT
