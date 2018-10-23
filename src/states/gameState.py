@@ -13,9 +13,10 @@ class GameState:
     def __init__(self):
         self.state = GameState.State.NEW_GAME
         self.Player = Player()
+        self.Labyrinth = Labyrinth()
 
     def Update(self):
         if(self.state == GameState.State.NEW_GAME):
-            print("New game")
-            Player.name = input("Prosze podac imie gracza: ")
+            print("Jakas bardzo fajna historyjka na wstępie")
+            Player.name = input("Jak masz na imię? ")
             self.state = GameState.State.EXIT
