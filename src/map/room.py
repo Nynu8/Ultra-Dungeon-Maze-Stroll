@@ -11,5 +11,6 @@ class Room:
         self.id = uuid.uuid4()
         self.route = {}
 
-    def add_route(self, room_id):
-        self.id = room_id
+    def add_route(self, room_id, direction):
+        self.route[room_id] = direction
+    

@@ -1,12 +1,12 @@
 from enum import Enum
-from player.player import Player
-from map.labyrinth import Labyrinth
+from src.player import Player
+from src.labyrinth import Labyrinth
 
 class GameState:
     class State(Enum):
         NEW_GAME = 1
-        ENTER_ROOM = 2
-        CHOOSE_ROOM = 3
+        CHOOSE_ROOM = 2
+        ENTER_ROOM = 3
         ENTER_RANDOM_ROOM = 4
         EXIT = 5
 
@@ -17,6 +17,6 @@ class GameState:
 
     def Update(self):
         if(self.state == GameState.State.NEW_GAME):
-            print("Jakas bardzo fajna historyjka na wstępie")
-            Player.name = input("Jak masz na imię? ")
+            print("New game")
+            self.Player.name=input("Prosze podac imie gracza: ")
             self.state = GameState.State.EXIT
