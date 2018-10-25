@@ -28,15 +28,28 @@ class GameState:
             current_room = Labyrinth.get_room_by_id(self.Labyrinth, self.Player.current_location)
             if(current_room.type == Type.ENTRANCE):
                 print("wejscie")
+                self.state = GameState.State.CHOOSE_ROOM
+
             elif(current_room.type == Type.WITH_KEY):
                 print("z kluczem")
+                self.Player.can_escape = True
+                self.state = GameState.State.CHOOSE_ROOM
+
             elif(current_room.type == Type.EXIT):
+                if(self.Player.can_escape == True):
+                    self.state = GameState.State.EXIT
+                else:
+                    self.state = GameState.State.CHOOSE_ROOM
+
                 print("wyjscie")
+
             elif(current_room.type == Type.PORTAL):
                 print("portal")
+                self.state = GameState.State.CHOOSE_ROOM
+
             else:
                 print("zwykly")
-            self.state = GameState.State.CHOOSE_ROOM
+                self.state = GameState.State.CHOOSE_ROOM
 
         if(self.state == GameState.State.CHOOSE_ROOM):
             current_room = Labyrinth.get_room_by_id(self.Labyrinth, self.Player.current_location)
@@ -65,4 +78,4 @@ class GameState:
                 print("Na drodze napotykasz solidną ścianę. Być może powinieneś spróbować pójść w innym kierunku?")
 
         if(self.state == GameState.State.EXIT):
-            pass
+            print("wyszedles")
