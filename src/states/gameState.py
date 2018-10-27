@@ -1,5 +1,6 @@
 from enum import Enum
 from player.player import Player
+from data.data import TextData
 from map.labyrinth import Labyrinth
 from map.room import Direction
 from map.room import Type
@@ -15,17 +16,28 @@ class GameState:
         self.state = GameState.State.NEW_GAME
         self.Player = Player()
         self.Labyrinth = Labyrinth()
+        self.TextData = TextData()
         self.Player.current_location = self.Labyrinth.find_start_room().id
         print(self.Player.current_location)
 
     def Update(self):
         if(self.state == GameState.State.NEW_GAME):
-            print("New game")
-            self.Player.name = input("Prosze podac imie gracza: ")
+            message = self.TextData.introduction()
+            print(message["beforeName"])
+            self.Player.name = input("Nazywam się ")
+            print(message["afterName"])
+            input()
             self.state = GameState.State.ENTER_ROOM
 
         if(self.state == GameState.State.ENTER_ROOM):
+            description = self.TextData.room_data()
             current_room = Labyrinth.get_room_by_id(self.Labyrinth, self.Player.current_location)
+            if(current_room.already_visited == True):
+                print(description[current_room.type.name]["visited"])
+            else:
+                print(description[current_room.type.name]["not_visited"])
+        
+            current_room.already_visited = True
             if(current_room.type == Type.ENTRANCE):
                 print("wejscie")
                 self.state = GameState.State.CHOOSE_ROOM
@@ -40,11 +52,19 @@ class GameState:
                     self.state = GameState.State.EXIT
                 else:
                     self.state = GameState.State.CHOOSE_ROOM
-
                 print("wyjscie")
-
+            
             elif(current_room.type == Type.PORTAL):
-                print("portal")
+                print("opis")
+                go_through_portal = input("Chcesz przejść przez portal? Tak/Nie")
+                if(go_through_portal.lower() == "tak"):
+                    print("Cos sie dzieje")
+                    self.Player.current_location = self.Labyrinth.find_portal_room(current_room.id).id
+                
+                elif(go_through_portal.lower() == "nie"):
+                    print("nie to nie")
+                
+                else: print("Portal nie rozumie o co ci chodzi")
                 self.state = GameState.State.CHOOSE_ROOM
 
             else:

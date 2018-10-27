@@ -75,3 +75,8 @@ class Labyrinth:
         for room in self.room_list:
             if(room.type == Type.ENTRANCE):
                 return room
+    
+    def find_portal_room(self, id):
+        for room in self.room_list:
+            if(room.type == Type.PORTAL and room.id != id):
+                return room

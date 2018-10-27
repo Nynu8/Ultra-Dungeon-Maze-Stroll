@@ -1,0 +1,12 @@
+{
+	"introduction": {
+		"beforeName": "Wraz z grupą aspirujących informatyków dzięki samorządowi wydziału matematyki stosowanej jesteś na rajdzie w Karkonoszach. W trakcie wędrówki przez las drugiego dnia wycieczki zauważasz między drzewami fragmenty podupadłej, kamiennej budowli. Przecierasz oczy ze zdumienia i zastanawiasz się, czy to aby nie wytwór Twojej wyobraźni wywołany niewyspaniem. W przypływie chęci zaznania przygody życia postanawiasz odłączyć się od grupy i zbadać podejrzany obiekt na własną rękę. Znajdujesz zarośnięte mchem drzwi, które ku Twojemu zdziwieniu dają się otworzyć. Twoim oczom ukazują się długie schody prowadzące w dół – w ciemną, mroczną otchłań. \"Co może pójść nie tak\" – myślisz i pogwizdując z zadowoleniem do melodii z Indiany Jonesa zaczynasz schodzić. Docierasz do pomieszczenia, do którego prowadziły schody.Jest niewielkie, lecz starannie wykończone, zauważasz niewyraźne płaskorzeźby i kamienną posadzkę.Byłoby całkiem ciemno, gdyby nie światło świec na ścianach wpadające przez trzy kamienne łuki drzwiowe – jeden naprzeciw Ciebie i dwa po bokach. Ciszę gwałtownie przerywa dobiegający z bliżej nieokreślonej przestrzeni aksamitny głos polskiego lektora Macieja Gudowskiego oznajmiający, że musisz podać imię ponieważ jesteś teraz głównym bohaterem gry Ultra Dungeon Maze Stroll. Uznajesz, że na rajdzie matematyków nic Cię już nie zdziwi i podajesz bez wahania.",
+		"afterName": "Za Twoimi plecami rozlega się metaliczny dźwięk klucza przekręcanego w drzwiach. Już wiesz, że nie możesz wyjść stąd tą samą drogą. Pozostaje pytanie, czy w ogóle możesz stąd wyjść? \n\nWybierasz kierunek podróży przy pomocy n - północ, s - połódnie, w - zachód, e - wschód \n(Naciśnij enter aby kontynuować)"
+    },
+    "room_data": {
+        "ENTRANCE": {
+            "visited": "Początek btw już tu byłem",
+            "not_visited": "Początek btw jeszcze mnie tu nie było"   
+        }
+    }
+}
