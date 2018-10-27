@@ -5,5 +5,5 @@ class Game:
         self.GameState = GameState()
         
     def run(self):
-        while(self.GameState.state != GameState.State.EXIT):
-            self.GameState.Update()
+        while(self.GameState.Update() == True):
+            pass

@@ -6,27 +6,23 @@ class Labyrinth:
     def __init__(self):
         self.room_list = []
         start = Room(Type.ENTRANCE)
-        room1 = Room(description="""Wchodzisz do małego pokoju, w którym poza drzwiami, którymi właśnie wszedłeś, nie ma żadnych innych. Na przeciwległej ścianie wisi jedynie obraz przedstawiający łąkę pełną grzybów i postać z brodą w długich szatach przypominającą druida albo maga z kreskówek. \“Architekci tego labiryntu chyba średnio mieli pomysł na to jak zagospodarować pomieszczenia\” myślisz.
-""")
+        room1 = Room(description="Wchodzisz do małego pokoju, w którym poza drzwiami, którymi właśnie wszedłeś, nie ma żadnych innych. Na przeciwległej ścianie wisi jedynie obraz przedstawiający łąkę pełną grzybów i postać z brodą w długich szatach przypominającą druida albo maga z kreskówek. \"Architekci tego labiryntu chyba średnio mieli pomysł na to jak zagospodarować pomieszczenia\" myślisz.")
         start.add_route(room1.id, Direction.WEST)
-        room2 = Room(description="""Znajdujesz się w pokoju przechodnim, zza kolejnych drzwi skierowanych na północ dostrzegasz jednak ciekawsze pomieszczenie.
-""")
+        room2 = Room(description="Znajdujesz się w pokoju przechodnim, zza kolejnych drzwi skierowanych na północ dostrzegasz jednak ciekawsze pomieszczenie.")
         start.add_route(room2.id, Direction.EAST)
-        room3 = Room(description="""Jesteś w pokoju, z którego wychodzą trzy korytarze, widzisz też szerokie schody prowadzące w dół w kierunku północnym.
-""")
+        room3 = Room(description="Jesteś w pokoju, z którego wychodzą trzy korytarze, widzisz też szerokie schody prowadzące w dół w kierunku północnym.")
         start.add_route(room3.id, Direction.NORTH)
         self.room_list.append(start)
         room1.add_route(start.id, Direction.EAST)
         self.room_list.append(room1)
         room2.add_route(start.id, Direction.WEST)
-        room4= Room(Type.PORTAL)
+        room4= Room(Type.PORTAL1)
         room2.add_route(room4.id, Direction.NORTH)
         self.room_list.append(room2)
         room4.add_route(room2.id, Direction.SOUTH)
         room4.add_route(room3.id, Direction.WEST)
         self.room_list.append(room4)
-        room5 = Room(description="""Docierasz do wielkiej sali, zdobiony strop podpierają grube filary. Możesz wejść schodami z powrotem na górę w południowym kierunku lub wybrać jedno z trzech tajemniczych przejść. 
-""")
+        room5 = Room(description="Docierasz do wielkiej sali, zdobiony strop podpierają grube filary. Możesz wejść schodami z powrotem na górę w południowym kierunku lub wybrać jedno z trzech tajemniczych przejść.")
         room3.add_route(start.id, Direction.SOUTH)
         room3.add_route(room4.id, Direction.EAST)
         room3.add_route(room5.id, Direction.NORTH)
@@ -45,7 +41,7 @@ class Labyrinth:
         self.room_list.append(room6)
         room9.add_route(room6.id, Direction.SOUTH)
         self.room_list.append(room9)
-        room10 = Room(Type.PORTAL)
+        room10 = Room(Type.PORTAL2)
         room11 = Room(Type.WITH_DOOR_KEY)
         room12 = Room(description="Delikatne światło okazuje się być jedynie świeczką na kamiennej półce. Nic ciekawego tu nie ma. ")
         room10.add_route(room11.id, Direction.EAST)
@@ -82,5 +78,5 @@ class Labyrinth:
     
     def find_portal_room(self, id):
         for room in self.room_list:
-            if(room.type == Type.PORTAL and room.id != id):
+            if((room.type == Type.PORTAL1 or room.type == Type.PORTAL2) and room.id != id):
                 return room

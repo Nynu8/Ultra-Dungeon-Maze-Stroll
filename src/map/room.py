@@ -9,11 +9,12 @@ class Direction(Enum):
 
 class Type(Enum):
     COMMON = 1
-    PORTAL = 2
-    WITH_PORTAL_KEY = 3
-    EXIT = 4
-    ENTRANCE = 5
-    WITH_DOOR_KEY = 6
+    PORTAL1 = 2
+    PORTAL2 = 3
+    WITH_PORTAL_KEY = 4
+    EXIT = 5
+    ENTRANCE = 6
+    WITH_DOOR_KEY = 7
 
 class Room:
     def __init__(self, type = Type.COMMON, description = ""):

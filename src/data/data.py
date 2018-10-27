@@ -8,5 +8,7 @@ class TextData:
         return self.data["introduction"]
     
     def room_data(self):
-        print(self.data["room_data"])
         return self.data["room_data"]
+
+    def ending(self):
+        return self.data["victory"]
